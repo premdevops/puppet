@@ -1,5 +1,0 @@
----
-
-monitoring::iqsource: 'puppet:///modules/squidcert/myCA.der'
-monitoring::jpath: '/usr/bin:/usr/sbin:/bin'
-monitoring::iqcert: '/usr/local/share/ca-certificates/myCA.der'
