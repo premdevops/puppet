@@ -1,0 +1,55 @@
+class atdmimportarservice {
+
+$atdm_service       = hiera('atdm.atdmimportar.atdmimportarservice.service')
+$atdm_servicepath   = hiera('atdm.atdmimportar.atdmimportarservice.servicepath')
+$atdm_jpath         = hiera('atdm.atdmimportar.atdmimportarservice.jpath')
+$atdm_source        = hiera('atdm.atdmimportar.atdmimportarservice.source')
+$atdm_servicename   = hiera('atdm.atdmimportar.atdmimportarservice.servicename')
+$atdm_dir           = hiera('atdm.atdmimportar.atdmimportarservice.dir')
+$atdm_zipdir        = hiera('atdm.atdmimportar.atdmimportarservice.zipdir')
+$atdm_zipfile       = hiera('atdm.atdmimportar.atdmimportarservice.zipfile')
+$atdm_localsource   = hiera('atdm.atdmimportar.atdmimportarservice.localsource')
+$atdm_stupscript    = hiera('atdm.atdmimportar.atdmimportarservice.startup_script')
+$atdm_stuplocation  = hiera('atdm.atdmimportar.atdmimportarservice.startup_location')
+$atdm_username      = hiera('general.credens.wget.username')
+$atdm_password      = hiera('general.credens.wget.password')
+
+
+
+wget::fetch { 'ATDM_download' :
+      source      => $atdm_source,
+      destination => $atdm_zipdir,
+      user        => $atdm_username,
+      password    => $atdm_password,
+      timeout     => 0,
+      verbose     => false,
+    } ->
+
+
+
+exec { 'atdm_unzip' :
+     path => $atdm_jpath,
+     cwd => $atdm_zipdir,
+     command => $atdm_zipfile,
+} ->
+
+file { $atdm_dir :
+        ensure => present,
+        source => $atdm_localsource,
+        alias => $atdm_servicename,
+        recurse => "inf",
+        ignore => ["log"],
+        purge => "false",
+} -> 
+
+file { $atdm_stuplocation  :
+        ensure  => file,
+        source => $atdm_stupscript,
+} ->
+
+service { $atdm_service :
+        ensure  => running,
+        hasstatus => false,
+} 
+}
+

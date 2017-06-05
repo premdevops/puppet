@@ -1,0 +1,17 @@
+---
+
+atdm.atdmimportar.atdmimportarservice.service: 'atdmprocess'
+atdm.atdmimportar.atdmimportarservice.servicepath: '/etc/init.d/atdmprocess'
+atdm.atdmimportar.atdmimportarservice.jpath: '/usr/bin:/usr/sbin:/bin'
+atdm.atdmimportar.atdmimportarservice.source: 'https://pupagent.savanture.in/$server/$version/ATDMDataImporter.zip'
+atdm.atdmimportar.atdmimportarservice.servicename: 'ATDMDataImporter'
+atdm.atdmimportar.atdmimportarservice.dir: '/iqs/ATDMDataImporter'
+atdm.atdmimportar.atdmimportarservice.zipdir: '/RemoteSource/'
+atdm.atdmimportar.atdmimportarservice.zipfile: 'unzip -o ATDMDataImporter.zip'
+atdm.atdmimportar.atdmimportarservice.localsource: '/RemoteSource/ATDMDataImporter'
+atdm.atdmimportar.atdmimportarservice.startup_script: 'puppet:///modules/atdmimportarservice/atdmprocess'
+atdm.atdmimportar.atdmimportarservice.startup_location: '/etc/init.d/atdmprocess'
+
+
+
+

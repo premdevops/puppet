@@ -1,0 +1,20 @@
+---
+gw.gwservice.service: 'gwprocess'
+gw.gwsevrice.servicepath: '/etc/init.d/gwprocess'
+gw.gwsevrice.jpath: '/usr/bin:/usr/sbin:/bin'
+gw.gwsevrice.mailto: 'pachaimuthu.s@savanture.in'
+gw.gwsevrice.nohup: '/iqs/GatewayServer/nohup.out'
+gw.gwsevrice.ioe: 'java.io.IOException: Map failed'
+gw.gwsevrice.oom: 'java.lang.OutOfMemoryError:'
+gw.gwsevrice.diskfull: 'Not enough space'
+gw.gwsevrice.nospace: 'No space left on device'
+gw.gwsevrice.null: 'Exception :'
+gw.gwsevrice.mailoom: 'mail -s "Error Found in the GW Process;restarting GW service"'
+gw.gwsevrice.maillog: 'mail -s "Gateway Service Restarted Because logs not recieved for past 20 min"'
+gw.gwservice.source: '/usr/bin/wget -m ftp://10.1.1.19/GatewayServer-1.0'
+gw.gwservice.servicename: 'GatewayServer'
+gw.gwservice.dir: '/iqs/GatewayServer'
+gw.gwservice.localsource: '/tmp/10.1.1.19/GatewayServer-1.0'
+
+
+

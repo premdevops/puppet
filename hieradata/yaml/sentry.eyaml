@@ -1,0 +1,13 @@
+---
+
+sen.sentry.sentryservice.service: 'sentry'
+sen.sentry.sentryservice.startup_location: '/etc/init.d/sentry'
+sen.sentry.sentryservice.jpath: '/usr/bin:/usr/sbin:/bin'
+sen.sentry.sentryservice.source: 'https://pupagent.savanture.in/SentinelServer.zip'
+sen.sentry.sentryservice.servicename: 'SentinelServer'
+sen.sentry.sentryservice.dir: '/iqs/SentinelServer'
+sen.sentry.sentryservice.zipfile: 'unzip -o SentinelServer.zip'
+sen.sentry.sentryservice.zipdir: '/RemoteSource/'
+sen.sentry.sentryservice.localsource: '/RemoteSource/SentinelServer'
+sen.sentry.sentryservice.startup_script: 'puppet:///modules/sentryservice/sentry'
+

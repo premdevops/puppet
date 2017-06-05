@@ -1,0 +1,12 @@
+
+---
+
+monitoring::iqservice: 'kafka'
+monitoring::iqservicepath: '/etc/init.d/kafka'
+monitoring::jpath: '/usr/bin:/usr/sbin:/bin'
+monitoring::mailto: 'pachaimuthu.s@savanture.in'
+monitoring::iqnohup: '/iqs/GatewayServer/nohup.out'
+monitoring::rmdir: '/usr/bin/wget -m ftp://10.1.1.19/kafka'
+monitoring::alias: 'kafka'
+monitoring::iqdir: '/iqs/kafka'
+monitoring::rmsource: '/tmp/10.1.1.19/kafka'

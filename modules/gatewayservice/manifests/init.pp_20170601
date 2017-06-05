@@ -1,0 +1,52 @@
+class gatewayservice {
+
+$gw_service       = hiera('gw.gateway.gatewayservice.service')
+$gw_jpath         = hiera('gw.gateway.gatewayservice.jpath')
+$gw_source        = hiera('gw.gateway.gatewayservice.source')
+$gw_servicename   = hiera('gw.gateway.gatewayservice.servicename')
+$gw_dir           = hiera('gw.gateway.gatewayservice.dir')
+$gw_zipdir        = hiera('gw.gateway.gatewayservice.zipdir')
+$gw_zipfile       = hiera('gw.gateway.gatewayservice.zipfile')
+$gw_localsource   = hiera('gw.gateway.gatewayservice.localsource')
+$gw_stupscript    = hiera('gw.gateway.gatewayservice.startup_script')
+$gw_stuplocation  = hiera('gw.gateway.gatewayservice.startup_location')
+$gw_username      = hiera('general.credens.wget.username')
+$gw_password      = hiera('general.credens.wget.password')
+
+
+wget::fetch { 'GW_download' :
+      source      => $gw_source,
+      destination => $gw_zipdir,
+      user        => $gw_username,
+      password    => $gw_password,
+      timeout     => 0,
+      verbose     => false,
+    } ->
+
+
+
+exec { 'gw_unzip' :
+     path => $gw_jpath,
+     cwd => $gw_zipdir,
+     command => $gw_zipfile,
+} ->
+
+file { $gw_dir :
+        ensure => present,
+        source => $gw_localsource,
+        alias => $gw_servicename,
+        recurse => "inf",
+        ignore => ["log"],
+        purge => "false",
+} ->
+
+file { $gw_stuplocation  :
+        ensure  => file,
+        source => $gw_stupscript,
+} ->
+
+service { $gw_service :
+        ensure  => running,
+        hasstatus => false,
+}
+}

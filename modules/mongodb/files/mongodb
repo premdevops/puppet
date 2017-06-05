@@ -1,0 +1,121 @@
+#!/bin/bash
+# chkconfig: 345 95 20
+# Author: Vinod Padarthi
+# Description:  Mongo DB Service Startup Script
+# ProcessName:  mongodb
+# Version : 1.0 Relased Date : 01-06-2014
+
+MDPATH="/iqs/mongo"
+cd $MDPATH
+
+if [ -d "$MDPATH" ]
+then
+echo -e "\e[1;32;40m Mongo DB Path Available \e[0m"
+else
+echo -e "\e[1;31;40m Problem With the Mongo DB Path, Please verify the Path and try again \e[0m"
+exit 0
+fi
+JAVAP="/iqs/java/bin/java"
+MINMEM="4096"
+MAXMEM="4096"
+CPU="1"
+
+parameter () {
+echo -e "\e[1;31;40m Allocated CPU : $CPU \e[0m"
+}
+
+mail () {
+IPADDR=`ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'`
+}
+
+
+start () {
+	
+	SERSTATUS=`ps -eaf | grep -w "$MDPATH/bin/mongod --port 6000" | grep -v grep | wc -l`
+	if [ $SERSTATUS -eq 1 ] ; then
+		echo ""
+		echo -e "\e[1;31;40m Mongo DB Service Already Running \e[0m"
+		echo ""
+	else
+		parameter
+		cd $MDPATH
+#		taskset -c $CPU nohup $MDPATH/bin/mongod --port 6000 --logpath ''$MDPATH'/log/log.txt' --dbpath ''$MDPATH'/data/db' --replSet iqslive &
+		nohup $MDPATH/bin/mongod --port 6000 --logpath ''$MDPATH'/log/log.txt' --dbpath ''$MDPATH'/data/db' --keyFile ''$MDPATH'/mongodb-keyfile' --auth --replSet iqslive &
+                nohup date
+                nohup echo "Service Restarted..."
+		sleep 5
+		SERSTATUS1=`ps -eaf | grep -w "$MDPATH/bin/mongod --port 6000" | grep -v grep | wc -l`
+		if [ $SERSTATUS1 -eq 1 ] ; then
+			echo ""
+			echo -e "\e[1;32;40m Mongo DB Service Started Successfully. \e[0m"
+			echo ""
+		else
+			echo ""
+			echo -e "\e[1;31;40m Error Starting the DB Service. \e[0m"
+			echo ""
+		fi
+	fi
+}
+
+stop () {
+	SERPID=`ps -eaf | grep -w "$MDPATH/bin/mongod --port 6000" | grep -v grep | wc -l`
+	if [ $SERPID -eq 0 ]
+		then
+		echo ""
+		echo -e "\e[1;31;40m Mongo DB Service Already Stopped. \e[0m"
+		echo ""
+	else
+		SERPID1=`ps -eaf | grep -w "$MDPATH/bin/mongod --port 6000" | grep -v grep | awk '{print $2}'`
+		kill -9 $SERPID1
+		SERPID=`ps -eaf | grep -w "$MDPATH/bin/mongod --port 6000" | grep -v grep | wc -l`
+		if [ $SERPID -eq 0 ] ; then
+			echo ""
+			echo -e "\e[1;32;40m Mongo DB Service Stopped Successfully. \e[0m"
+			echo ""
+		else
+			echo ""
+			echo -e "\e[1;31;40m Error Stopping Mongo DB Service. \e[0m"
+			echo ""
+		fi
+	fi
+}
+
+restart () {
+stop
+sleep 2
+start
+}
+
+status () {
+	SERSTATUS=`ps -eaf | grep -w "$MDPATH/bin/mongod --port 6000" | grep -v grep | wc -l`
+	if [ $SERSTATUS -eq 1 ]
+		then
+		echo ""
+		echo "Mongo DB Service Running"
+		echo ""
+	else
+		echo ""
+		echo "Mongo DB Service Stopped"
+		echo ""
+	fi
+}
+
+
+case "$1" in
+	start)
+		start
+		;;
+	stop)
+		stop
+		;;
+	restart)
+		restart
+		;;
+	status)
+		status
+		;;
+	*)
+		echo $"Usage: $0 {start|stop|restart|status}"
+		exit 1
+		;;
+esac

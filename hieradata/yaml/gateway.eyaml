@@ -1,0 +1,17 @@
+
+---
+
+gw.gateway.gatewayservice.service: 'gwprocess'
+gw.gateway.gatewayservice.jpath: '/usr/bin:/usr/sbin:/bin'
+gw.gateway.gatewayservice.source: 'https://pupagent.savanture.in/GatewayServer.zip'
+gw.gateway.gatewayservice.servicename: 'GatewayServer'
+gw.gateway.gatewayservice.dir: '/iqs/GatewayServer'
+gw.gateway.gatewayservice.zipfile: 'unzip -o GatewayServer.zip'
+gw.gateway.gatewayservice.zipdir: '/RemoteSource/'
+gw.gateway.gatewayservice.localsource: '/RemoteSource/GatewayServer'
+gw.gateway.gatewayservice.startup_script: 'puppet:///modules/gatewayservice/gwprocess'
+gw.gateway.gatewayservice.startup_location: '/etc/init.d/gwprocess'
+gw.gateway.gatewayservice.nohup: '/iqs/GatewayServer/nohup.out'
+gw.gateway.gatewayservice.mailoom: 'mail -s "Error Found in the GW Process;restarting GW service"'
+gw.gateway.gatewayservice.maillog: 'mail -s "Gateway Service Restarted Because logs not recieved for past 20 min"'
+gw.gateway.gatewayservice.portlog: 'mail -s "Gateway Service Restarted Because of port number changed "'

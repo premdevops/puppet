@@ -1,0 +1,23 @@
+---
+
+###JAVA INSTALLATION ###
+
+common.java.javac.source: 'https://pupagent.savanture.in/jdk1.7.0_51.zip'
+common.java.javac.username: 'admin'
+common.java.javac.password: 'ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEwDQYJKoZIhvcNAQEBBQAEggEAeUigmq4yU4wIDa8dCD+0EDjTE4l6DJJCL3+9GWDxqECDOYh+dBe+E08TSFzdScrH1iQTCdU9m3HvBKvUKwGUPuhb/aVHQHkR3JnDo/E6SyhKXmCfxe4uNAz7sRK9rxhtoqPphsTQwc86AOroY7CyoHZ3u8z2DXDaiyeaTL+3BWceMFDqxn/1qwxa88MHYhOy+g+8qndCmPD5cAIGvE6rsB0pWQ+wHz6zaQ7+NvzBN7wSBNPtNAduvZVBkteuwxYzPeMD/0xDomaUaRYsxFF57+vNsDiXUu49kYyug3drJwCHFNNV+gN01BCxJeTgVyEGO7aVfl6onilaGUJYb6EE+TA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBM0CLFvW1ZYsa6Qw5IqvcygBCHve53USyHBExMmgQU4tf8]'
+common.java.javac.servicename: 'jdk1.7.0_51'
+common.java.javac.dir: '/iqs/jdk1.7.0_51'
+
+common.java.javac.zipdir: '/RemoteSource/'
+common.java.javac.zipfile: 'jdk1.7.0_51.zip'
+common.java.javac.location: '/iqs/java'
+common.java.javac.localsource: '/RemoteSource/jdk1.7.0_51'
+common.java.javac.jpath: '/usr/bin:/usr/sbin:/bin'
+common.java.javac.profile_path: '/etc/profile'
+common.java.javac.profile_source: 'puppet:///modules/gateway/profile'
+
+
+
+### IPTABLES ###
+
+common.firewall.iptables.service: 'iptables'

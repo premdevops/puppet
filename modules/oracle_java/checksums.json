@@ -1,0 +1,20 @@
+{
+  "CHANGELOG.md": "a2ff9c7101cd7420846bc7d7caacb4ea",
+  "Gemfile": "7ffd37401ba130a125538d99abe48256",
+  "LICENSE": "0d7d2e0097bad962d1249d5e6bf51744",
+  "README.md": "5cdb3686bb53d34fa7fc637e083a4794",
+  "Rakefile": "72e8a5871babd70363b211287335a130",
+  "manifests/alternative/deb.pp": "805077b3daf641ec0c59654de9e77d93",
+  "manifests/alternative/rpm.pp": "0652ce2ed865f0307f3aa6035eb94222",
+  "manifests/alternative.pp": "574b853c309ed0648decdadca2b846ff",
+  "manifests/checksums.pp": "2f42f96bb47b20bae592e9189a1c412d",
+  "manifests/download.pp": "8204d66c4775a9ce78356f1f2aa45d46",
+  "manifests/env.pp": "f4cd8f3b9b0365ac482d33de64da5ac8",
+  "manifests/init.pp": "7eca320af786ead2c4890b9daf63d87f",
+  "manifests/install/rpm.pp": "f292ae7639d4a9b640e507417120e886",
+  "manifests/install/targz.pp": "483c8b4e8a10b5f91acbfba354177d21",
+  "manifests/install.pp": "5e3ee59c3bd102ba1455d46a6c1247f8",
+  "manifests/installation.pp": "2bd425da096c8aaa221c906992492140",
+  "manifests/javalist.pp": "9ff0e2b46268e9147b03d75fba4d99a9",
+  "metadata.json": "2433e7e19f0ed46b613969211aa86bac"
+}

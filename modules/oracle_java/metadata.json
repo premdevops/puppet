@@ -1,0 +1,157 @@
+{
+  "name": "aco-oracle_java",
+  "version": "2.7.4",
+  "author": "Antoine Cotten",
+  "summary": "Puppet module to install Oracle Java on Linux systems",
+  "license": "Apache-2.0",
+  "source": "git://github.com/antoineco/aco-oracle_java.git",
+  "project_page": "https://github.com/antoineco/aco-oracle_java",
+  "issues_url": "https://github.com/antoineco/aco-oracle_java/issues",
+  "dependencies": [
+    {"name":"puppetlabs/stdlib","version_requirement":">= 3.2.0 < 5.0.0"},
+    {"name":"puppet/archive","version_requirement":">= 0.4.4 < 2.0.0"}
+  ],
+  "data_provider": null,
+  "tags": [
+    "jre",
+    "jdk",
+    "oracle",
+    "java"
+  ],
+  "requirements": [
+    {
+      "version_requirement": ">= 3.2.0",
+      "name": "pe"
+    },
+    {
+      "version_requirement": ">= 3.4.0",
+      "name": "puppet"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Amazon",
+      "operatingsystemrelease": [
+        "2015.03",
+        "2015.09",
+        "2016.03",
+        "2016.09"
+      ]
+    },
+    {
+      "operatingsystem": "Fedora",
+      "operatingsystemrelease": [
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25"
+      ]
+    },
+    {
+      "operatingsystem": "OpenSuSE",
+      "operatingsystemrelease": [
+        "12.3",
+        "13.1",
+        "13.2",
+        "42.1",
+        "42.2"
+      ]
+    },
+    {
+      "operatingsystem": "SuSE",
+      "operatingsystemrelease": [
+        "11.3",
+        "11.4",
+        "12.0",
+        "12.1"
+      ]
+    },
+    {
+      "operatingsystem": "SLES",
+      "operatingsystemrelease": [
+        "11.3",
+        "11.4",
+        "12.0",
+        "12.1"
+      ]
+    },
+    {
+      "operatingsystem": "SLED",
+      "operatingsystemrelease": [
+        "11.3",
+        "11.4",
+        "12.0",
+        "12.1"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6",
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "12.04",
+        "12.10",
+        "13.04",
+        "13.10",
+        "14.04",
+        "14.10",
+        "15.04",
+        "15.10",
+        "16.04",
+        "16.10"
+      ]
+    },
+    {
+      "operatingsystem": "Mageia",
+      "operatingsystemrelease": [
+        "4",
+        "5"
+      ]
+    }
+  ]
+}

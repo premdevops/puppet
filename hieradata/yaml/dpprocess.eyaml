@@ -1,0 +1,16 @@
+
+---
+
+dp.dpprocess.dpprocessservice.service: 'dpprocess'
+dp.dpprocess.dpprocessservice.jpath: '/usr/bin:/usr/sbin:/bin'
+dp.dpprocess.dpprocessservice.source: 'https://pupagent.savanture.in/DataProcessor.zip'
+dp.dpprocess.dpprocessservice.servicename: 'DataProcessor'
+dp.dpprocess.dpprocessservice.dir: '/iqs/DataProcessor'
+dp.dpprocess.dpprocessservice.zipfile: 'unzip -o DataProcessor.zip'
+dp.dpprocess.dpprocessservice.zipdir: '/RemoteSource/'
+dp.dpprocess.dpprocessservice.localsource: '/RemoteSource/DataProcessor'
+dp.dpprocess.dpprocessservice.startup_script: 'puppet:///modules/dpprocessservice/dpprocess'
+dp.dpprocess.dpprocessservice.startup_location: '/etc/init.d/dpprocess'
+dp.dpprocess.dpprocessservice.nohup: '/iqs/DataProcessor/nohup.out'
+dp.dpprocess.dpprocessservice.mailoom: 'mail -s "Error Found in the Data Process;restarting dp service"'
+dp.dpprocess.dpprocessservice.maillog: 'mail -s "Dataprocess Service Restarted Because logs not received  for past 20 min"'

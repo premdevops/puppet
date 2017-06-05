@@ -1,0 +1,15 @@
+---
+
+monitoring::iqservice: 'apache-kaf'
+monitoring::iqsericepath: '/etc/init.d/apache-kaf'
+monitoring::jpath: '/usr/bin:/usr/sbin:/bin'
+monitoring::mailto: 'pachaimuthu.s@iqsystech.com'
+monitoring::mailport: 'mail -s "Port Missing ,So Restart kafka Service"'
+monitoring::iqport: '9092'
+monitoring::iqservice1: 'apache-zookeeper'
+monitoring::iqsericepath1: '/etc/init.d/apache-zookeeper'
+monitoring::jpath1: '/usr/bin:/usr/sbin:/bin'
+monitoring::mailto1: 'pachaimuthu.s@iqsystech.com'
+monitoring::mailport1: 'mail -s "Port Missing ,So Restart zookeeper Service"'
+monitoring::iqport1: '2181'
+

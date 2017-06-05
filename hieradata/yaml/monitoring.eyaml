@@ -1,0 +1,9 @@
+
+---
+
+routine.monitoring.relevant.mailto: 'netops@savanture.in'
+routine.monitoring.relevant.ioe: 'java.io.IOException: Map failed'
+routine.monitoring.relevant.oom: 'java.lang.OutOfMemoryError:'
+routine.monitoring.relevant.diskfull: 'Not enough space'
+routine.monitoring.relevant.nospace: 'No space left on device'
+routine.monitoring.relevant.null: 'Exception :'

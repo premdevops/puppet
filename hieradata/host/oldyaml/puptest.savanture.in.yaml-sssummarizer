@@ -1,0 +1,18 @@
+---
+
+monitoring::iqservice: 'sssummarizer'
+monitoring::iqservicepath: '/etc/init.d/sssummarizer'
+monitoring::jpath: '/usr/bin:/usr/sbin:/bin'
+monitoring::mailto: 'pachaimuthu.s@savanture.in'
+monitoring::iqnohup: '/iqs/SSSummarizer/nohup.out'
+monitoring::IOException: 'java.io.IOException: Map failed'
+monitoring::JAVA_OOM: 'java.lang.OutOfMemoryError:'
+monitoring::Diskfull: 'Not enough space'
+monitoring::NO_SPC: 'No space left on device'
+monitoring::null: 'Exception :'
+monitoring::Mail_OOM: 'mail -s "Error Found in the SSSummarizer;restarting SSSummarizer service"'
+monitoring::Maillog: 'mail -s "SSSummarizer Service Restarted Because logs not recieved for past 20 min"'
+monitoring::rmdir: '/usr/bin/wget -m ftp://10.1.1.19/SSSummarizer'
+monitoring::alias: 'SSSummarizer'
+monitoring::iqdir: '/iqs/SSSummarizer'
+monitoring::rmsource: '/tmp/10.1.1.19/SSSummarizer'

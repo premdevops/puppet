@@ -1,0 +1,12 @@
+---
+
+es.esprocess.esprocessservice.service: 'esprocess'
+es.esprocess.esprocessservice.startup_location: '/etc/init.d/esprocess'
+es.esprocess.esprocessservice.jpath: '/usr/bin:/usr/sbin:/bin'
+es.esprocess.esprocessservice.source: 'https://pupagent.savanture.in/ESProcessor.zip'
+es.esprocess.esprocessservice.servicename: 'ESProcessor'
+es.esprocess.esprocessservice.dir: '/iqs/ESProcessor'
+es.esprocess.esprocessservice.zipfile: 'unzip -o ESProcessor.zip'
+es.esprocess.esprocessservice.zipdir: '/RemoteSource/'
+es.esprocess.esprocessservice.localsource: '/RemoteSource/ESProcessor'
+es.esprocess.esprocessservice.startup_script: 'puppet:///modules/esprocessservice/esprocess'

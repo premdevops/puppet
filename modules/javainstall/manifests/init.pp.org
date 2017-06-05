@@ -1,0 +1,88 @@
+class javac {
+
+#Hiera Lookups
+#$java_source      = hiera('gw::java::source')
+#$java_servicename = hiera('gw::java::servicename')
+#$java_dir         = hiera('gw::java::dir')
+#$java_localsource = hiera('gw::java::localsource')
+#$java_jpath       = hiera('gw::java::jpath')
+
+$gw_service       = hiera('gw::gwservice::gateway')
+$gw_servicepath   = hiera('gw::gwservice::servicepath')
+$gw_jpath         = hiera('gw::gwservice::jpath')
+$gw_mailto        = hiera('gw::gwservice::mailto')
+$gw_ioe           = hiera('gw::gwservice::ioe')
+$gw_oom           = hiera('gw::gwservice::oom')
+$gw_diskfull      = hiera('gw::gwservice::diskfull')
+$gw_nospace       = hiera('gw::gwservice::nospace')
+$gw_null          = hiera('gw::gwservice::null')
+$gw_nohup         = hiera('gw::gwservice::nohup')
+$gw_mailoom       = hiera('gw::gwservice::mailoom')
+$gw_maillog       = hiera('gw::gwservice::maillog')
+$gw_source        = hiera('gw::gwservice::source')
+$gw_servicename   = hiera('gw::gwservice::servicename')
+$gw_dir           = hiera('gw::gwservice::dir')
+$gw_localsource   = hiera('gw::gwservice::localsource')
+
+
+
+#exec { $java_source :
+#        alias => $java_servicename,
+#        cwd => "/tmp",
+#    }
+
+#file { $java_dir :
+#        ensure => present,
+#        source => $java_localsource,
+#        alias => $java_servicename,
+#        recurse => "inf",
+#        purge => "false",
+#}
+
+#exec { 'java' :
+#     path   => $java_jpath,
+#     command => "ln -sf /iqs/jdk1.7.0_51 /iqs/java",
+
+#}
+
+
+exec { $gw_source :
+        alias => $gw_servicename,
+        cwd => "/tmp",
+    }
+
+file { $gw_dir :
+        ensure => present,
+        source => $gw_localsource,
+        alias => $gw_servicename,
+        recurse => "inf",
+        ignore => ["gatewayserverinfo.log"],
+        purge => "false",
+}
+
+
+service { $gw_service :
+
+        ensure  => running,
+        hasstatus => false,
+        }
+
+
+exec { 'GW_OOM':
+  path => $gw_jpath,
+  command =>    "sed -i 's/$gw_ioe/java.io.IOException CHECKED: Map failed/g' $gw_nohup
+                 sed -i 's/$gw_oom/java.lang.OutOfMemoryError CHECKED:/g' $gw_nohup
+                 sed -i 's/$gw_diskfull/Not enough CHECKED space/g' $gw_nohup
+                 sed -i 's/$gw_nospace/No space CHECKED left on device/g' $gw_nohup
+                 sed -i 's/$gw_null/Exception : java.lang.CHECKED.NullPointerException/g' $gw_nohup ; $gw_servicepath restart; $gw_mailoom $gw_mailto",
+  onlyif => "test `cat $gw_nohup | egrep -w '$gw_ioe|$gw_oom|$gw_diskfull|$gw_nospace|$gw_null'| wc -l` -ge 1",
+}
+
+exec { 'gw_lognotreceive' :
+      path => $gw_jpath,
+      command => "$gw_servicepath restart; $gw_maillog $gw_mailto",
+      onlyif => "test sh -x /root/logscript/gwlog.sh | wc -l -eq 0",
+}
+
+
+}

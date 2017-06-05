@@ -1,0 +1,16 @@
+
+---
+
+atdm.atdmprocess.atdmimporterservice.service: 'atdmprocess'
+atdm.atdmprocess.atdmimporterservice.jpath: '/usr/bin:/usr/sbin:/bin'
+atdm.atdmprocess.atdmimporterservice.source: 'https://pupagent.savanture.in/ATDMDataImporter.zip'
+atdm.atdmprocess.atdmimporterservice.servicename: 'ATDMDataImporter'
+atdm.atdmprocess.atdmimporterservice.dir: '/iqs/ATDMDataImporter'
+atdm.atdmprocess.atdmimporterservice.zipfile: 'unzip -o ATDMDataImporter.zip'
+atdm.atdmprocess.atdmimporterservice.zipdir: '/RemoteSource/'
+atdm.atdmprocess.atdmimporterservice.localsource: '/RemoteSource/ATDMDataImporter'
+atdm.atdmprocess.atdmimporterservice.startup_script: 'puppet:///modules/atdmimporterservice/atdmprocess'
+atdm.atdmprocess.atdmimporterservice.startup_location: '/etc/init.d/atdmprocess'
+atdm.atdmprocess.atdmimporterservice.nohup: '/iqs/ATDMDataImporter/nohup.out'
+atdm.atdmprocess.atdmimporterservice.mailoom: 'mail -s "Error Found in the ATDMDataImporter Process;restarting es service"'
+atdm.atdmprocess.atdmimporterservice.maillog: 'mail -s "ATDMDataImporter Service Restarted Because logs not received for past 20 min"'
