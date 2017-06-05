@@ -1,5 +1,0 @@
----
-
-monitoring::iqservice: 'sentry'
-monitoring::iqsericepath: '/etc/init.d/sentry'
-

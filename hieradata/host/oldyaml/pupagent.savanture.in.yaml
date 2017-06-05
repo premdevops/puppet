@@ -1,8 +1,0 @@
----
-gw.java.javac.source: '/usr/bin/wget -m ftp://10.1.1.19/jdk1.7.0_51'
-gw.java.javac.servicename: 'jdk1.7.0_51'
-gw.java.javac.dir: '/iqs/jdk1.7.0_51'
-gw.java.javac.localsource: '/tmp/10.1.1.19/jdk1.7.0_51'
-gw.java.javac.jpath: '/usr/bin:/usr/sbin:/bin'
-gw.java.javac.profile_path: '/etc/profile'
-gw.java.javac.profile_source: 'puppet:///modules/javac/profile'
